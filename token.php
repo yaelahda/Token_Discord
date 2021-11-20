@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/vendor/autoload.php');
 
 $colors = new \Colors();
 use Curl\Curl;
-echo '['.$colors->getColoredString(date('H:i:s'), 'green').'] | [?] Discord get token account';
+echo '['.$colors->getColoredString(date('H:i:s'), 'green').'] | [?] Discord get token account'.PHP_EOL;
     echo '['.$colors->getColoredString(date('H:i:s'), 'green').'] | [?] Email: ';
     $email = trim(fgets(STDIN));
     echo '['.$colors->getColoredString(date('H:i:s'), 'green').'] | [?] Password: ';
@@ -23,7 +23,7 @@ echo '['.$colors->getColoredString(date('H:i:s'), 'green').'] | [?] Discord get 
         'gift_code_sku_id' => null,
             ]);
     if ($curl->error) {
-        die('['.$colors->getColoredString(date('H:i:s'), 'green').'] | [!] Login Failed!!'.PHP_EOL);
+        die('['.$colors->getColoredString(date('H:i:s'), 'green').'] | [!] Login Failed!!'.error.''.PHP_EOL);
     } else {
         echo '['.$colors->getColoredString(date('H:i:s'), 'green').'] | [!] Login Success, Your Token '. $curl->response->token.' Saved in File token.json'.PHP_EOL;
         if(!file_exists("token.json")) {
